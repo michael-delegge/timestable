@@ -8,8 +8,13 @@ int default_10 (void);
 int main(int argc, char *argv[])
 {
 	int horizontal, vertical, header, limit;
-	limit = strtol(argv[1], NULL, 10);
-	   
+
+	if (argc == 1) {
+		limit = MAX;
+	} else {
+		limit = strtol(argv[1], NULL, 10);
+	}
+	
 	printf (" * ");    
 	for (header = 1; header <= limit; ++header) {    
 		printf ("%4d   ", header); 
@@ -17,7 +22,7 @@ int main(int argc, char *argv[])
 	printf ("\n");  
 
   	for (horizontal = 1; horizontal <= limit; ++horizontal){    
-      printf ("%4d ", horizontal);    
+      printf ("%2d ", horizontal);    
       for (vertical = 1; vertical <= limit; ++vertical)    
 		printf ("%4d   ", horizontal * vertical);    
 		printf ("\n");    
